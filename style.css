@@ -818,20 +818,20 @@ html[data-theme='light'] .team-card:hover .team-photo {
 }
 
 .photo-one {
-  background-image: url("images/yasir_image.png");
+  background-image: url("yasir_image.png");
 }
 .photo-two {
-  background-image: url("images/rehan_image.png");
+  background-image: url("rehan_image.png");
 }
 .photo-three {
-  background-image: url("images/sufyan_image.png");
+  background-image: url("sufyan_image.png");
 }
 
 .photo-four {
-  background-image: url("images/Asadullah_image.png");
+  background-image: url("Asadullah_image.png");
 }
 .photo-five {
-  background-image: url("images/waqas_image.png");
+  background-image: url("waqas_image.png");
 }
 .team-card h3 {
   font-size: 1.3rem;
