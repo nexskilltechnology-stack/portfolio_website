@@ -11,10 +11,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('nexskill-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (err) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <style>
+      /* Keeps anchor-link jumps from landing partially hidden behind the
+         sticky header, so in-page navigation feels like a smooth transition. */
+      section[id] {
+        scroll-margin-top: 90px;
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -25,15 +43,15 @@
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#projects">Projects</a>
-          <a href="#team">Team</a>
-          <a href="#contact">Contact</a>
+          <a href="#services"><span>Services</span></a>
+          <a href="#reviews"><span>Reviews</span></a>
+          <a href="#projects"><span>Projects</span></a>
+          <a href="#team"><span>Team</span></a>
+          <a href="#contact"><span>Contact</span></a>
         </nav>
 
         <div class="header-actions">
-          <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <button class="theme-toggle" type="button" aria-label="Switch to light mode">
             <span class="theme-icon" aria-hidden="true">☀️</span>
           </button>
           <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
@@ -49,29 +67,33 @@
 
     <main id="top">
       <section class="hero section">
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow">Digital Growth Partner</span>
-            <h1>We build digital systems that bring in revenue.</h1>
-            <p>
+          <div class="hero-copy" data-reveal="fade-up">
+            <span class="eyebrow" data-reveal-child>Digital Growth Partner</span>
+            <h1 class="split-heading" data-reveal-child>
+              <span class="line">We build digital systems</span>
+              <span class="line">that bring in <em>revenue</em>.</span>
+            </h1>
+            <p data-reveal-child>
               NexSkill Technology helps businesses launch standout websites, high-performing mobile apps,
               conversion-focused campaigns, and AI automations that reduce workload and increase
               sales.
             </p>
 
-            <div class="hero-actions">
-              <a class="cta-button" href="#contact">Get a Free Consultation</a>
-              <a class="secondary-button" href="#projects">See Our Work</a>
+            <div class="hero-actions" data-reveal-child>
+              <a class="cta-button" href="#contact"><span>Get a Free Consultation</span></a>
+              <a class="secondary-button" href="#projects"><span>See Our Work</span></a>
             </div>
 
-            <ul class="trust-list" aria-label="Key business results">
-              <li><strong>200+</strong> Projects Delivered</li>
-              <li><strong>98%</strong> Client Retention</li>
+            <ul class="trust-list" aria-label="Key business results" data-reveal-child>
+              <li><strong><span class="count-up" data-count="200">0</span>+</strong> Projects Delivered</li>
+              <li><strong><span class="count-up" data-count="98">0</span>%</strong> Client Retention</li>
               <li><strong>24/7</strong> Support</li>
             </ul>
           </div>
 
-          <div class="hero-visual" aria-label="NexSkill Technology dashboard illustration">
+          <div class="hero-visual" data-reveal="zoom-in" aria-label="NexSkill Technology dashboard illustration">
             <div class="dashboard-card main-card">
               <div class="card-header">
                 <span class="dot red"></span>
@@ -81,16 +103,16 @@
 
               <div class="chart-panel">
                 <div class="chart-bars" aria-hidden="true">
-                  <span style="height: 40%"></span>
-                  <span style="height: 60%"></span>
-                  <span style="height: 48%"></span>
-                  <span style="height: 74%"></span>
-                  <span style="height: 88%"></span>
-                  <span style="height: 100%"></span>
+                  <span style="--bar-h: 40%"></span>
+                  <span style="--bar-h: 60%"></span>
+                  <span style="--bar-h: 48%"></span>
+                  <span style="--bar-h: 74%"></span>
+                  <span style="--bar-h: 88%"></span>
+                  <span style="--bar-h: 100%"></span>
                 </div>
                 <div class="chart-summary">
                   <p>Revenue Growth</p>
-                  <strong>+184%</strong>
+                  <strong><span class="count-up" data-count="184">0</span>%</strong>
                 </div>
               </div>
             </div>
@@ -108,28 +130,36 @@
       </section>
 
       <section class="partners section-sm">
-        <div class="container partners-row">
+        <div class="container partners-head">
           <span>Trusted by founders, startups, and businesses across:</span>
-          <div class="partner-logos" aria-label="industries served">
+        </div>
+        <div class="marquee" aria-label="industries served">
+          <div class="marquee-track">
             <span>Healthcare</span>
             <span>Finance</span>
             <span>E-commerce</span>
             <span>Real Estate</span>
             <span>Education</span>
-            <span>Saas</span>
+            <span>SaaS</span>
+            <span>Healthcare</span>
+            <span>Finance</span>
+            <span>E-commerce</span>
+            <span>Real Estate</span>
+            <span>Education</span>
+            <span>SaaS</span>
           </div>
         </div>
       </section>
 
       <section id="services" class="section">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="fade-up">
             <span class="eyebrow">Our Services</span>
             <h2>End-to-end growth solutions for modern businesses.</h2>
           </div>
 
           <div class="service-grid">
-            <article class="service-card" data-service="web-development">
+            <article class="service-card" data-service="web-development" data-reveal="pop" data-reveal-delay="0" data-tilt>
               <div class="service-icon">🌐</div>
               <h3>Web Development</h3>
               <p>
@@ -144,10 +174,9 @@
                 “Our new website increased qualified inquiries by 130% in the first 8 weeks.”
                 <small>— Jordan Lee, Founder</small>
               </blockquote>
-              <button type="button" class="service-detail-btn">Learn more</button>
             </article>
 
-            <article class="service-card" data-service="mobile-app-development">
+            <article class="service-card" data-service="mobile-app-development" data-reveal="pop" data-reveal-delay="1" data-tilt>
               <div class="service-icon">📱</div>
               <h3>Mobile App Development</h3>
               <p>
@@ -162,10 +191,9 @@
                 “The app was delivered on time and performed better than expected in beta launch.”
                 <small>— Aisha Khan, Product Lead</small>
               </blockquote>
-              <button type="button" class="service-detail-btn">Learn more</button>
             </article>
 
-            <article class="service-card" data-service="lead-generation">
+            <article class="service-card" data-service="lead-generation" data-reveal="pop" data-reveal-delay="2" data-tilt>
               <div class="service-icon">🎯</div>
               <h3>Lead Generation</h3>
               <p>
@@ -179,10 +207,9 @@
                 “We filled our pipeline in 3 weeks and our sales team finally had qualified prospects.”
                 <small>— Ewan Brooks, Sales Manager</small>
               </blockquote>
-              <button type="button" class="service-detail-btn">Learn more</button>
             </article>
 
-            <article class="service-card" data-service="digital-marketing">
+            <article class="service-card" data-service="digital-marketing" data-reveal="pop" data-reveal-delay="0" data-tilt>
               <div class="service-icon">📈</div>
               <h3>Digital Marketing</h3>
               <p>
@@ -196,10 +223,9 @@
                 “The ad strategy more than doubled our return on ad spend in under two months.”
                 <small>— Maria Gomez, Brand Director</small>
               </blockquote>
-              <button type="button" class="service-detail-btn">Learn more</button>
             </article>
 
-            <article class="service-card" data-service="ai-automation">
+            <article class="service-card" data-service="ai-automation" data-reveal="pop" data-reveal-delay="1" data-tilt>
               <div class="service-icon">🤖</div>
               <h3>AI Automation</h3>
               <p>
@@ -213,7 +239,6 @@
                 “We saved 25+ hours a week by automating customer support and lead qualification.”
                 <small>— Daniel Wright, Operations Head</small>
               </blockquote>
-              <button type="button" class="service-detail-btn">Learn more</button>
             </article>
           </div>
         </div>
@@ -221,13 +246,13 @@
 
       <section id="reviews" class="section alt-bg">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="fade-up">
             <span class="eyebrow">Client Love</span>
             <h2>Results-driven feedback from businesses we’ve helped.</h2>
           </div>
 
           <div class="review-grid">
-            <div class="review-card featured">
+            <div class="review-card featured" data-reveal="slide-right" data-reveal-delay="0">
               <div class="review-stars">★★★★★</div>
               <p>
                 "NexSkill Technology transformed our online presence. They built a stunning website, improved our
@@ -239,7 +264,7 @@
               </div>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" data-reveal="slide-up" data-reveal-delay="1">
               <div class="review-stars">★★★★★</div>
               <p>
                 “Their mobile app team understood our audience perfectly and shipped a polished product
@@ -251,7 +276,7 @@
               </div>
             </div>
 
-            <div class="review-card">
+            <div class="review-card" data-reveal="slide-left" data-reveal-delay="2">
               <div class="review-stars">★★★★★</div>
               <p>
                 “From SEO to ad management, their digital marketing strategy helped us dominate our niche
@@ -268,7 +293,7 @@
 
       <section class="section benefits">
         <div class="container benefit-grid">
-          <div class="benefit-copy">
+          <div class="benefit-copy" data-reveal="slide-right">
             <span class="eyebrow">Why NexSkill Technology</span>
             <h2>We combine strategy, design, and automation to scale smarter.</h2>
             <p>
@@ -277,27 +302,27 @@
             </p>
 
             <ul class="check-list">
-              <li>Business-first strategy and planning</li>
-              <li>Custom design tailored to your target audience</li>
-              <li>Conversion-focused development and automation</li>
-              <li>Transparent communication and measurable outcomes</li>
+              <li data-reveal="fade-up" data-reveal-delay="0">Business-first strategy and planning</li>
+              <li data-reveal="fade-up" data-reveal-delay="1">Custom design tailored to your target audience</li>
+              <li data-reveal="fade-up" data-reveal-delay="2">Conversion-focused development and automation</li>
+              <li data-reveal="fade-up" data-reveal-delay="3">Transparent communication and measurable outcomes</li>
             </ul>
           </div>
 
           <div class="stats-panel">
-            <div class="stat-box">
-              <strong>5+ Years</strong>
+            <div class="stat-box" data-reveal="pop" data-reveal-delay="0">
+              <strong><span class="count-up" data-count="5">0</span>+ Years</strong>
               <span>Experience in digital growth</span>
             </div>
-            <div class="stat-box">
-              <strong>1200+</strong>
+            <div class="stat-box" data-reveal="pop" data-reveal-delay="1">
+              <strong><span class="count-up" data-count="1200">0</span>+</strong>
               <span>Qualified leads generated</span>
             </div>
-            <div class="stat-box">
-              <strong>35%</strong>
+            <div class="stat-box" data-reveal="pop" data-reveal-delay="2">
+              <strong><span class="count-up" data-count="35">0</span>%</strong>
               <span>Average increase in conversions</span>
             </div>
-            <div class="stat-box">
+            <div class="stat-box" data-reveal="pop" data-reveal-delay="3">
               <strong>24/7</strong>
               <span>Client support and monitoring</span>
             </div>
@@ -307,33 +332,54 @@
 
       <section id="projects" class="section">
         <div class="container">
-          <div class="section-heading">
-            <span class="eyebrow">Featured Projects</span>
-            <h2>Recent wins built for growth.</h2>
+          <div class="section-heading" data-reveal="fade-up">
+            <span class="eyebrow">Our Recent Projects</span>
+            <h2>A sample of the digital systems we design and build.</h2>
           </div>
 
           <div class="project-grid">
-            <article class="project-card project-one">
+            <article class="project-card project-ecommerce">
+              <span class="demo-badge">Demo Project</span>
               <div class="project-overlay">
-                <span class="tag">E-commerce</span>
-                <h3>CartBoost Commerce</h3>
-                <p>Rebuilt a storefront with faster checkout flow and higher conversion rates.</p>
+                <span class="tag">Web Development</span>
+                <h3>E-Commerce Growth Platform</h3>
+                <p>A modern e-commerce website designed for better customer experience, conversions, and online sales.</p>
               </div>
             </article>
 
-            <article class="project-card project-two">
+            <article class="project-card project-ai-support">
+              <span class="demo-badge">Demo Project</span>
               <div class="project-overlay">
-                <span class="tag">SaaS</span>
-                <h3>FlowPilot Dashboard</h3>
-                <p>Designed a client portal and automation dashboard for operations management.</p>
+                <span class="tag">AI Automation</span>
+                <h3>AI Customer Support Assistant</h3>
+                <p>An AI-powered customer support system that helps businesses automate customer queries and support workflows.</p>
               </div>
             </article>
 
-            <article class="project-card project-three">
+            <article class="project-card project-crm">
+              <span class="demo-badge">Demo Project</span>
               <div class="project-overlay">
-                <span class="tag">Mobile App</span>
-                <h3>LiftUp Fitness</h3>
-                <p>Built a user-friendly fitness app with onboarding, subscriptions, and retention flows.</p>
+                <span class="tag">Lead Generation</span>
+                <h3>Lead Generation &amp; CRM System</h3>
+                <p>A complete lead generation and CRM workflow designed to capture, qualify, and manage business leads.</p>
+              </div>
+            </article>
+
+            <article class="project-card project-analytics">
+              <span class="demo-badge">Demo Project</span>
+              <div class="project-overlay">
+                <span class="tag">Web Development / Analytics</span>
+                <h3>Business Analytics Dashboard</h3>
+                <p>A responsive business dashboard for tracking sales, leads, performance, and important business KPIs.</p>
+              </div>
+            </article>
+
+            <article class="project-card project-marketing">
+              <span class="demo-badge">Demo Project</span>
+              <div class="project-overlay">
+                <span class="tag">Digital Marketing</span>
+                <h3>Digital Marketing Campaign</h3>
+                <p>A complete digital marketing campaign focused on brand awareness, traffic generation, and customer acquisition.</p>
               </div>
             </article>
           </div>
@@ -342,44 +388,105 @@
 
       <section id="team" class="section alt-bg">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="fade-up">
             <span class="eyebrow">Meet Our Team</span>
             <h2>Experts who turn ideas into results.</h2>
           </div>
 
           <div class="team-grid">
-            <article class="team-card">
-              <div class="team-photo photo-one"></div>
-              <h3>Muhammad Yasir Iqbal</h3>
-              <span class="role">CEO & Founder</span>
-              <p>Guides business growth plans, client strategy, and major project direction.</p>
+            <article class="team-card" data-reveal="flip" data-reveal-delay="0" tabindex="0">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-photo photo-one"></div>
+                  <h3>Muhammad Yasir Iqbal</h3>
+                  <span class="role">CEO &amp; Founder</span>
+                </div>
+                <div class="team-card-back">
+                  <h3>Muhammad Yasir Iqbal</h3>
+                  <span class="role">CEO &amp; Founder</span>
+                  <p>Guides business growth plans, client strategy, and major project direction.</p>
+                  <div class="team-links">
+                    <a class="team-link" href="https://www.linkedin.com/in/muhammad-yasir-iqbal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="team-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=yasir@nexskilltechnology.com" target="_blank" rel="noopener noreferrer">Email</a>
+                  </div>
+                </div>
+              </div>
             </article>
 
-            <article class="team-card">
-              <div class="team-photo photo-two"></div>
-              <h3>Muhammad Rehan</h3>
-              <span class="role">Co-Founder & Mobile App Developer</span>
-              <p>Builds fast, scalable web solutions and mobile experiences tailored to business goals.</p>
+            <article class="team-card" data-reveal="flip" data-reveal-delay="1" tabindex="0">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-photo photo-two"></div>
+                  <h3>Muhammad Rehan</h3>
+                  <span class="role">Co-Founder &amp; Mobile App Developer</span>
+                </div>
+                <div class="team-card-back">
+                  <h3>Muhammad Rehan</h3>
+                  <span class="role">Co-Founder &amp; Mobile App Developer</span>
+                  <p>Builds fast, scalable web solutions and mobile experiences tailored to business goals.</p>
+                  <div class="team-links">
+                    <a class="team-link" href="https://www.linkedin.com/in/muhammad-rehan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="team-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=rehan@nexskilltechnology.com" target="_blank" rel="noopener noreferrer">Email</a>
+                  </div>
+                </div>
+              </div>
             </article>
 
-            <article class="team-card">
-              <div class="team-photo photo-three"></div>
-              <h3>Muhammad Sufyan</h3>
-              <span class="role">Operational Manager</span>
-              <p>Managed daily operations, team coordination, workflow management, and client communication while ensuring tasks were completed efficiently and on time.</p>
+            <article class="team-card" data-reveal="flip" data-reveal-delay="2" tabindex="0">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-photo photo-three"></div>
+                  <h3>Muhammad Sufyan</h3>
+                  <span class="role">Operational Manager</span>
+                </div>
+                <div class="team-card-back">
+                  <h3>Muhammad Sufyan</h3>
+                  <span class="role">Operational Manager</span>
+                  <p>Managed daily operations, team coordination, workflow management, and client communication while ensuring tasks were completed efficiently and on time.</p>
+                  <div class="team-links">
+                    <a class="team-link" href="https://www.linkedin.com/in/muhammad-sufyan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="team-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=sufyan@nexskilltechnology.com" target="_blank" rel="noopener noreferrer">Email</a>
+                  </div>
+                </div>
+              </div>
             </article>
 
-            <article class="team-card">
-              <div class="team-photo photo-four"></div>
-              <h3>Asadullah</h3>
-              <span class="role">Director of Demand Generation</span>
-              <p>Managed demand generation strategies, lead generation campaigns, and marketing activities to attract qualified leads, strengthen brand visibility, and contribute to business growth.</p>
+            <article class="team-card" data-reveal="flip" data-reveal-delay="3" tabindex="0">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-photo photo-four"></div>
+                  <h3>Asadullah</h3>
+                  <span class="role">Director of Demand Generation</span>
+                </div>
+                <div class="team-card-back">
+                  <h3>Asadullah</h3>
+                  <span class="role">Director of Demand Generation</span>
+                  <p>Managed demand generation strategies, lead generation campaigns, and marketing activities to attract qualified leads, strengthen brand visibility, and contribute to business growth.</p>
+                  <div class="team-links">
+                    <a class="team-link" href="https://www.linkedin.com/in/asadullah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="team-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=asadullah@nexskilltechnology.com" target="_blank" rel="noopener noreferrer">Email</a>
+                  </div>
+                </div>
+              </div>
             </article>
-            <article class="team-card">
-              <div class="team-photo photo-five"></div>
-              <h3>Muhammad Waqas Iqbal</h3>
-              <span class="role">AI Strategy Director</span>
-              <p>Developed AI strategies, identified growth opportunities, and guided AI initiatives to improve business processes, efficiency, and overall performance.</p>
+
+            <article class="team-card" data-reveal="flip" data-reveal-delay="0" tabindex="0">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-photo photo-five"></div>
+                  <h3>Muhammad Waqas Iqbal</h3>
+                  <span class="role">AI Strategy Director</span>
+                </div>
+                <div class="team-card-back">
+                  <h3>Muhammad Waqas Iqbal</h3>
+                  <span class="role">AI Strategy Director</span>
+                  <p>Developed AI strategies, identified growth opportunities, and guided AI initiatives to improve business processes, efficiency, and overall performance.</p>
+                  <div class="team-links">
+                    <a class="team-link" href="https://www.linkedin.com/in/muhammad-waqas-iqbal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="team-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=waqas@nexskilltechnology.com" target="_blank" rel="noopener noreferrer">Email</a>
+                  </div>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -387,23 +494,25 @@
 
       <section class="section process">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="fade-up">
             <span class="eyebrow">How We Work</span>
             <h2>A simple process that keeps momentum high.</h2>
           </div>
 
           <div class="process-grid">
-            <div class="process-step">
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="0">
               <span>01</span>
               <h3>Discover</h3>
               <p>We understand your goals, market, and audience before designing anything.</p>
             </div>
-            <div class="process-step">
+            <div class="process-connector" aria-hidden="true" data-reveal="grow-line" data-reveal-delay="1"></div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="1">
               <span>02</span>
               <h3>Build</h3>
               <p>We create the strategy, design, and systems needed to achieve measurable growth.</p>
             </div>
-            <div class="process-step">
+            <div class="process-connector" aria-hidden="true" data-reveal="grow-line" data-reveal-delay="2"></div>
+            <div class="process-step" data-reveal="fade-up" data-reveal-delay="2">
               <span>03</span>
               <h3>Launch</h3>
               <p>We deploy, test, optimize, and keep everything running smoothly after launch.</p>
@@ -414,7 +523,7 @@
 
       <section id="contact" class="section contact-bg">
         <div class="container contact-grid">
-          <div class="contact-copy">
+          <div class="contact-copy" data-reveal="slide-right">
             <span class="eyebrow">Let’s Talk</span>
             <h2>Ready to grow your business with NexSkill Technology?</h2>
             <p>
@@ -424,11 +533,11 @@
             <div class="contact-list">
               <div>
                 <strong>Email</strong>
-                <a href="mailto:hello@nexskill.com">nexskilltechnology@gmail.com</a>
+                <a href="mailto:nexskilltechnology@gmail.com">nexskilltechnology@gmail.com</a>
               </div>
               <div>
                 <strong>Phone</strong>
-                <a href="tel:+923001234567">+92 315 04528017</a>
+                <a href="tel:+923150452817">+92 315 04528017</a>
               </div>
               <div>
                 <strong>Location</strong>
@@ -437,10 +546,17 @@
             </div>
           </div>
 
-          <form class="contact-form" action="https://formspree.io/f/xkjwkaod" method="POST">
+          <form class="contact-form" action="https://formspree.io/f/xkjwkaod" method="POST" data-reveal="slide-left">
             <label>
-              Selected Service
-              <input id="selected-service" type="text" name="selected_service" placeholder="No service selected" readonly />
+              Select Service
+              <select id="selected-service" name="selected_service" required>
+                <option value="" disabled selected>Choose a service</option>
+                <option value="web-development">Web Development</option>
+                <option value="mobile-app-development">Mobile App Development</option>
+                <option value="lead-generation">Lead Generation</option>
+                <option value="digital-marketing">Digital Marketing</option>
+                <option value="ai-automation">AI Automation</option>
+              </select>
             </label>
             <label>
               Full Name
@@ -458,7 +574,7 @@
               Project Details
               <textarea name="message" rows="3" placeholder="Tell us about your project" required></textarea>
             </label>
-            <button type="submit" class="cta-button">Send Inquiry</button>
+            <button type="submit" class="cta-button"><span>Send Inquiry</span></button>
           </form>
         </div>
       </section>
@@ -477,7 +593,7 @@
         </div>
         <p id="service-modal-description"></p>
         <ul class="modal-features" id="service-modal-features"></ul>
-        <button type="button" class="cta-button modal-book-service">Book this service</button>
+        <button type="button" class="cta-button modal-book-service"><span>Book this service</span></button>
       </div>
     </div>
 
