@@ -1274,11 +1274,11 @@ html[data-theme="light"] .project-overlay {
   box-shadow: 0 0 0 8px rgba(94, 179, 255, 0.1), 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.photo-one { background-image: url("images/yasir_image.png"); }
-.photo-two { background-image: url("images/rehan_image.png"); }
-.photo-three { background-image: url("images/sufyan_image.png"); }
-.photo-four { background-image: url("images/Asadullah_image.png"); }
-.photo-five { background-image: url("images/waqas_image.png"); }
+.photo-one { background-image: url("yasir_image.png"); }
+.photo-two { background-image: url("rehan_image.png"); }
+.photo-three { background-image: url("sufyan_image.png"); }
+.photo-four { background-image: url("Asadullah_image.png"); }
+.photo-five { background-image: url("waqas_image.png"); }
 
 .team-card-front h3,
 .team-card-back h3 {
